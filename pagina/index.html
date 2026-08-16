@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>paginaweb</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin=""/>
+    <link rel="stylesheet" href="css/usuario.css">
+</head>
+<body>
+
+    <!-- Encabezado -->
+    <header class="app-header">
+        <div class="header-brand">
+            <div>
+                <h1>ReportAPP</h1>
+                <p>Magdalena, jalisco </p>
+            </div>
+        </div>
+    </header>
+
+    <div id="map"></div>
+
+    <!-- Botón de centrar ubicacion -->
+    <button id="btn-recenter" class="btn-recenter" title="Mi ubicación">
+        <span>GPS</span>
+    </button>
+
+
+
+
+    <!-- Panel de reportes -->
+    <div id="panel-reporte" class="panel-reporte">
+        <!-- Pestaña para abrir/cerrar -->
+        <button type="button" id="btn-toggle-panel" class="panel-toggle-btn" aria-label="Abrir u ocultar formulario">
+            <span class="panel-handle"></span>
+            <span id="toggle-text" class="toggle-text">Ocultar</span>
+        </button>
+
+        <div class="panel-content">
+            <div class="panel-header">
+                <h3>Crear Nuevo Reporte</h3>
+                <span class="panel-hint">Arrastra el marcador azul para ajustar la ubicacion exacta</span>
+            </div>
+
+            <form id="form-reporte" class="panel-form" onsubmit="return false;">
+                <div class="form-group">
+                    <label for="categoria">Categoría del problema</label>
+                    <div class="select-wrapper">
+                        <select id="categoria">
+                            <option value="Alumbrado">Alumbrado Público</option>
+                            <option value="Baches">Baches</option>
+                            <option value="Basura">Basura</option>
+                            <option value="Parques">Alcantarillado/Drenaje </option>
+                            <option value="Seguridad">Seguridad Pública</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="descripcion">Descripcion </label>
+                    <textarea id="descripcion" placeholder="Ej: Enfrente de la escuela X, hay muchos baches..." rows="2" required></textarea>
+                </div>
+
+                <div id="user-alert" class="user-alert" hidden></div>
+
+                <button type="button" id="btn-enviar" class="btn-enviar">
+                    <span>Enviar Reporte</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>
