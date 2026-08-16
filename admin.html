@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Ayuntamiento - Reportes</title>
+    
+    <!-- Fuentes  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS de Leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin=""/>
+    
+    <!-- Estilos de admin -->
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+    <!-- parte superior -->
+    <header class="admin-navbar">
+        <div class="navbar-brand">
+            <span class="brand-badge">Gobierno Municipal de Magdalena, Jal</span>
+            <h1>Panel Administrativo</h1>
+        </div>
+        <div class="navbar-user">
+
+            <button id="btn-logout" class="btn-logout">Cerrar Sesión</button>
+        </div>
+    </header>
+
+    <main class="admin-layout">
+        
+        <!-- Cantidades -->
+        <section class="stats-grid">
+            <div class="stat-card">
+                <span class="stat-title">Total de Reportes</span>
+                <span id="stat-total" class="stat-value">0</span>
+            </div>
+            <div class="stat-card stat-pendiente">
+                <span class="stat-title">Pendientes</span>
+                <span id="stat-pendientes" class="stat-value">0</span>
+            </div>
+            <div class="stat-card stat-proceso">
+                <span class="stat-title">En Proceso</span>
+                <span id="stat-proceso" class="stat-value">0</span>
+            </div>
+            <div class="stat-card stat-solucionado">
+                <span class="stat-title">Solucionados</span>
+                <span id="stat-solucionados" class="stat-value">0</span>
+            </div>
+        </section>
+
+        <!-- Filtros de categoria -->
+        <section class="filter-bar">
+            <div class="filter-group">
+                <label for="filtro-categoria">Categoría:</label>
+                <select id="filtro-categoria">
+                    <option value="Todas">Todas</option>
+                    <option value="Alumbrado">Alumbrado</option>
+                    <option value="Baches">Baches</option>
+                    <option value="Basura">Basura</option>
+                    <option value="Parques">Parques</option>
+                    <option value="Seguridad">Seguridad</option>
+                </select>
+            </div>
+            <!--filtro de estado -->
+            <div class="filter-group">
+                <label for="filtro-estado">Estado:</label>
+                <select id="filtro-estado">
+                    <option value="Todos">Todos</option>
+                    <option value="Pendiente">Pendiente</option>
+                    <option value="Recibido">Recibido</option>
+                    <option value="En proceso">En proceso</option>
+                    <option value="Solucionado">Solucionado</option>
+                </select>
+            </div>
+        </section>
+
+        <!-- Mapa y Tabla -->
+        <div class="dashboard-content">
+            <!-- Mapa de reportes-->
+            <section class="map-section">
+                <div class="section-header">
+                    <h3>Ubicación Geográfica del Incidente</h3>
+                    <p class="section-subtitle">Haz clic en una fila para enfocar su ubicacion  en el mapa</p>
+                </div>
+                <div id="admin-map"></div>
+            </section>
+
+            <!-- lista de reportes -->
+            <section class="table-section">
+                <div class="section-header">
+                    <h3>Listado de Reportes Ciudadanos</h3>
+                </div>
+                <div class="table-wrapper">
+                    <table id="tabla-reportes">
+                        <thead>
+                            <tr>
+                                <th>Fecha</th>
+                                <th>Categoría</th>
+                                <th>Descripción</th>
+                                <th>Estado Actual</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabla-body">
+                            <!-- Los reportes se inyectan dinámicamente -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+
+    </main>
+
+    <!-- JS de Leaflet -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+    <script type="module" src="js/admin.js"></script>
+</body>
+</html>
