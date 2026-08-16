@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión</title>
+    <!-- Fuentes de letra -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+    <main class="login-container">
+        <div class="login-card">
+            <header class="login-header">
+                <h2>Iniciar Sesión</h2>
+                <p>Ingresa tu correo y contraseña :]</p>
+            </header>
+
+            <form id="login-form" class="login-form">
+                <div class="input-group">
+                    <label for="email">Correo electrónico</label>
+                    <input type="email" id="email" placeholder="ejemplo@correo.com" required autocomplete="email">
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Contraseña</label>
+                    <div class="password-wrapper">
+                        <input type="password" id="password" placeholder="••••••••" required autocomplete="current-password">
+                        <button type="button" id="btn-toggle-password" class="btn-toggle-password" aria-label="Mostrar contraseña">
+                             <span id="togglePassword" class="toggle-eye">&#128065;</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div id="mensaje-error" class="mensaje-error" hidden></div>
+
+                <button type="submit" id="btn-login" class="btn-primary">
+                    <span class="btn-text">Entrar</span>
+                    <span class="btn-spinner" hidden></span>
+                </button>
+            </form>
+        </div>
+    </main>
+
+    <script type="module" src="js/login.js"></script>
+</body>
+</html>
